@@ -2,35 +2,27 @@ import sys
 
 num = ''.join(sys.argv[1:])
 if num:
-  try:
-    int(num) + 1
-    for n in range (1, (int(num) + 1)):
-     if 0 == n  % 15:
-       print ("fizzbuzz")
-     elif 0 == n  % 3: 
-       print ("fizz") 
-     elif 0 == n  % 5: 
-       print "buzz"
-     else:
-       print (n)
-  except:
-     print "Please enter a numbers only"
+   try:
+      int(num) + 1
+   except ValueError:
+      print 'Please enter numbers only'
 else:
-  while True:
-     reply = raw_input('Enter a number:')
-     if reply == 'stop':break
-     try:
-       int(reply) + 1
-       for n in range(1, (int(reply) + 1)): 
-         if 0 == n  % 15:
-           print ("fizzbuzz")
-         elif 0 == n  % 3: 
-           print ("fizz") 
-         elif 0 == n  % 5: 
-           print "buzz"
-         else:
-           print (n)
-       continue
-     except:
-       print "Please enter numbers only"
-       continue
+   while True:
+      num = raw_input('Enter a number:')
+      if num == 'stop':sys.exit(0)
+      try:
+          int(num) + 1
+          break
+      except:
+          print('Please enter numbers only')
+      continue
+for n in range(1, (int(num) + 1)): 
+  if 0 == n  % 15:
+    print ("fizzbuzz")
+  elif 0 == n  % 3: 
+    print ("fizz") 
+  elif 0 == n  % 5: 
+    print "buzz"
+  else:
+    print (n)
+
